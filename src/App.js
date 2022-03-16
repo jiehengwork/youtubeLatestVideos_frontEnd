@@ -1,14 +1,16 @@
 import React, {useState, useEffect} from 'react'
 import EmbedPlayer from './components/EmbedPlayer';
 import SideBar from './components/sideBar/SideBar';
+// css
+import { AppStyle } from './style';
 
 function App() {
 
   return (
-    <div className="App">
+    <AppStyle className="App">
       <SideBar/>
-      <EmbedPlayer/>
-    </div>
+      {/* <EmbedPlayer/> */}
+    </AppStyle>
   );
 }
 
