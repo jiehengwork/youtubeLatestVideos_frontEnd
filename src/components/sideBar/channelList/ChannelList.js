@@ -6,7 +6,7 @@ const ChannelList = () => {
 
   return(
     <div>
-      <ChannelItem/>
+      {/* <ChannelItem/> */}
     </div>
 )};
 

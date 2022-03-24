@@ -1,5 +1,8 @@
 import React, {useEffect} from "react";
-let videoId = 'Sh4Og11zDyM'
+// css
+import { AutoHeightDiv, StyleIframe } from "./style";
+
+let videoId = 'Sh4Og11zDyM';
 
 const EmbedPlayer = () => {
 
@@ -26,7 +29,9 @@ const EmbedPlayer = () => {
   }, [])
 
   return (
-    <iframe title="EmbedVideo" id="EmbedVideo" src={"https://www.youtube.com/embed/"+ videoId +'?enablejsapi=1'}></iframe>
+    <AutoHeightDiv>
+      <StyleIframe title="EmbedVideo" id="EmbedVideo" src={"https://www.youtube.com/embed/"+ videoId +'?enablejsapi=1'}></StyleIframe>
+    </AutoHeightDiv>
   );
 }
 export default EmbedPlayer;

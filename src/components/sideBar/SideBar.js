@@ -2,7 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 // css
-import { SideBarStyle } from "./style";
+import { StyleAside, StyleA, StyleLabel, LogoStyleDiv, StyleSwitchInput } from "./style";
 // component
 import SearchBlock from "./searchBlock/SearchBlock";
 import ChannelList from "./channelList/ChannelList";
@@ -10,14 +10,18 @@ import ChannelList from "./channelList/ChannelList";
 const SideBar = () => {
 
   return(
-    <SideBarStyle className="sideBar">
-      <div>
-        <FontAwesomeIcon icon={faBars}/>
-        <a><span>Latest Videos</span></a>
-      </div>
-      <SearchBlock/>
-      <ChannelList/>
-    </SideBarStyle>
+    <>
+      <StyleLabel htmlFor="sideBar-switch" fixedSwitch><FontAwesomeIcon icon={faBars}/></StyleLabel>
+      <StyleSwitchInput type='checkbox' id="sideBar-switch"></StyleSwitchInput>
+      <StyleAside className="sideBar" id="sideBar">
+        <LogoStyleDiv>
+          <StyleLabel htmlFor="sideBar-switch"><FontAwesomeIcon icon={faBars}/></StyleLabel>
+          <StyleA href="/#"><span>Latest Videos</span></StyleA>
+        </LogoStyleDiv>
+        <SearchBlock/>
+        <ChannelList/>
+      </StyleAside>
+    </>
   )
 };
 
