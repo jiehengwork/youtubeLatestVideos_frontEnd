@@ -4,7 +4,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 // axios
 import axios from 'axios';
 // css
-import { StyleForm, StyleInput, StyleButton } from "./style";
+import { StyleSearchBlock, StyleForm, StyleInput, StyleButton } from "./style";
 // component
 import ChannelItem from "../channelItem/ChannelItem";
 
@@ -25,17 +25,20 @@ const SearchBlock = () => {
     axios.post('http://localhost:9000/YouTubeAPI/channel/searchChannel', {
       channelName: channelName
     })
-    .then( res => setAPIData(res.data))
+    .then( res => {
+      localStorage.setItem('searchChannelId', res.data.channelId)
+      setAPIData(res.data)
+    })
   }
 
   return (
-    <>
+    <StyleSearchBlock>
       <StyleForm id="searchChannel" onSubmit={ handleSubmit }>
         <StyleInput type="search" value={channelName} onChange={(e) => {setChannelName(e.target.value)}}/>
         <StyleButton type="submit" from="searchChannel"><FontAwesomeIcon icon={ faMagnifyingGlass } /></StyleButton>
       </StyleForm>
       { apiData && <ChannelItem data={apiData}/>}
-    </>
+    </StyleSearchBlock>
   )
 };
 

@@ -1,9 +1,13 @@
 import styled from 'styled-components';
 
+const StyleSearchBlock = styled.div`
+  padding-bottom: 10%;
+  border-bottom: solid #D2C2A4;
+`;
 const StyleForm = styled.form`
   width: 90%;
   display: flex;
-  margin: 0 5% 5% 5%;
+  margin: 0 5% 10% 5%;
   border: 1px solid #000000;
   border-radius: 25px;
   `;
@@ -21,4 +25,4 @@ const StyleForm = styled.form`
   background-color: transparent;
 `;
 
-export {StyleForm, StyleInput, StyleButton};
+export { StyleSearchBlock, StyleForm, StyleInput, StyleButton };

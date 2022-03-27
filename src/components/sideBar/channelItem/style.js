@@ -27,6 +27,21 @@ const StyleP = styled.p`
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  min-width: 45%;
+`;
+const StyleButton = styled.button`
+  min-width: 20%;
+  height:80%;
+  padding: 0;
+  border: none 0;
+  border-radius: 5px;
+  background-color: #CF0000;
+  cursor: pointer;
+  color: #ffffff;
+  
+  &:hover {
+    background-color: #EB0000;
+  }
 `;
 
-export {StyleA, StyleImg, StyleP}
+export {StyleA, StyleImg, StyleP, StyleButton}
