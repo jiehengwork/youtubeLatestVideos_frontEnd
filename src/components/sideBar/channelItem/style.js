@@ -27,9 +27,9 @@ const StyleP = styled.p`
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  min-width: 45%;
 `;
 const StyleButton = styled.button`
+  margin-left: auto;
   min-width: 20%;
   height:80%;
   padding: 0;
