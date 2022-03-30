@@ -6,12 +6,19 @@ import { AppStyle } from './style';
 
 function App() {
 
-  useEffect(() => {
-    if (localStorage.getItem('subscriptArray') === null) {
-      let subscriptArrayStr = ''
-      localStorage.setItem('subscriptArray',subscriptArrayStr)
-    }
-  },[])
+  // useEffect(() => {
+  //   console.log("test");
+  //   if (localStorage.getItem('subscriptArray') === null) {
+  //     let subscriptArrayStr = ''
+  //     localStorage.setItem('subscriptArray',subscriptArrayStr)
+  //   }
+  // },[])
+
+  if (localStorage.getItem('subscriptArray') === null) {
+    let subscriptArrayStr = ''
+    localStorage.setItem('subscriptArray',subscriptArrayStr)
+  }
+
 
   return (
     <AppStyle className="App">
