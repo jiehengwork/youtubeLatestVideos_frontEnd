@@ -24,7 +24,7 @@ const StyleAside = styled.aside`
 `;
 const LogoStyleDiv = styled.div`
   margin-left: 5%;
-  margin-bottom: 10%;
+  height: 5vh;
 `;
 const StyleLabel = styled.label`
   margin-right: 10%;

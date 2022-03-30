@@ -10,6 +10,7 @@ const ChannelItem = ({ data }) => {
 
   const [ subscriptionStatus, setSubscriptionStatus ] = useState(false)
   
+  console.log(data)
   useEffect(() => {
     // 檢查訂閱狀態 從localStorage
     if (localStorage.getItem(data.channelId) !== null) {
@@ -23,6 +24,7 @@ const ChannelItem = ({ data }) => {
     if ( subscriptionStatus === false) {
       // 儲存頻道資訊
       let channelData = {
+        'channelId': data.channelId,
         'channelTitle': data.channelTitle,
         'channelSmallImg': data.channelSmallImg,
         'channelMediumImg': data.channelMediumImg,

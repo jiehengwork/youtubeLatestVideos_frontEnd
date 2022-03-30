@@ -1,6 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 // component
 import ChannelItem from "../channelItem/ChannelItem";
+// css
+import { StyledDiv } from './style';
 
 const ChannelList = () => {
 
@@ -14,9 +16,9 @@ const ChannelList = () => {
   });
 
   return(
-    <div>
+    <StyledDiv>
       {ChannelItemArray}
-    </div>
+    </StyledDiv>
 )};
 
 export default ChannelList;

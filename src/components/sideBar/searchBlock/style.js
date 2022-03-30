@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 const StyleSearchBlock = styled.div`
-  padding-bottom: 10%;
   border-bottom: solid #D2C2A4;
+  height: 13vh;
 `;
 const StyleForm = styled.form`
   width: 90%;
