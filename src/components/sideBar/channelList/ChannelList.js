@@ -12,7 +12,7 @@ const ChannelList = () => {
 
   let ChannelItemArray = subscriptArray.map( item => {
     let itemData = localStorage.getItem(item);
-    return <ChannelItem data={itemData}/>
+    return <ChannelItem data={itemData} key={item} />
   });
 
   return(

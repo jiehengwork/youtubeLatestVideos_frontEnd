@@ -2,15 +2,22 @@ import React, { useState, useEffect, useCallback } from "react";
 // css
 import { StyleA, StyleImg, StyleP, StyleButton } from "./style";
 
+const updateLocalStorage = (func) => {
+  let subscriptArrayStr = localStorage.getItem('subscriptArray');
+  let subscriptArray = subscriptArrayStr.split(',')
+  func(subscriptArray);
+  subscriptArrayStr = subscriptArray.join(',')
+  localStorage.setItem('subscriptArray', subscriptArrayStr)
+}
+
 const ChannelItem = ({ data }) => {
-  // 將從 localStorage 中取出的 data 轉成 Object
+  // 如果是從 localStorage 中取出的 data ，轉成 Object
   if ((typeof data) === 'string') {
     data = JSON.parse(data)
   }
 
   const [ subscriptionStatus, setSubscriptionStatus ] = useState(false)
   
-  console.log(data)
   useEffect(() => {
     // 檢查訂閱狀態 從localStorage
     if (localStorage.getItem(data.channelId) !== null) {
@@ -34,22 +41,16 @@ const ChannelItem = ({ data }) => {
       localStorage.setItem(data.channelId, channelData);
 
       // 更新訂閱清單
-      let subscriptArrayStr = localStorage.getItem('subscriptArray');
-      let subscriptArray = subscriptArrayStr.split(',')
-      subscriptArray.push(data.channelId)
-      subscriptArrayStr = subscriptArray.join(',')
-      localStorage.setItem('subscriptArray', subscriptArrayStr)
+      updateLocalStorage((array) => {array.push(data.channelId)});
     } else {
       // 刪除頻道資訊
       localStorage.removeItem(data.channelId);
-
+      
       // 更新訂閱清單
-      let subscriptArrayStr = localStorage.getItem('subscriptArray');
-      let subscriptArray = subscriptArrayStr.split(',')
-      let removeIndex = subscriptArray.indexOf(data.channelId)
-      subscriptArray.splice(removeIndex, 1);
-      subscriptArrayStr = subscriptArray.join(',')
-      localStorage.setItem('subscriptArray', subscriptArrayStr)
+      updateLocalStorage((array) => {
+        let removeIndex = array.indexOf(data.channelId)
+        array.splice(removeIndex, 1);
+      });
     }
     setSubscriptionStatus(current => !current);
   },[subscriptionStatus, data]);
