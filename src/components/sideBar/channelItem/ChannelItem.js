@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 // css
 import { StyleA, StyleImg, StyleP, StyleButton } from "./style";
 
@@ -27,7 +27,7 @@ const ChannelItem = ({ data }) => {
     }
   },[data]);
 
-  const subscriptHandler = useCallback(() => {
+  const subscriptHandler = () => {
     if ( subscriptionStatus === false) {
       // 儲存頻道資訊
       let channelData = {
@@ -53,7 +53,7 @@ const ChannelItem = ({ data }) => {
       });
     }
     setSubscriptionStatus(current => !current);
-  },[subscriptionStatus, data]);
+  };
 
   return(
     <StyleA href="/#">

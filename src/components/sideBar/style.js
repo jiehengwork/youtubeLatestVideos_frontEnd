@@ -8,14 +8,15 @@ const StyleAside = styled.aside`
   z-index: 1;
   height: 100%;
   width: 15vw;
-  position: absolute;
+  position: relative;
   background-color: #E3D9C6;
-
+  
   // 側邊欄收合
   transition: 0.2s;
-  transform: translateX(-100%);
+  transform: translateX(0);
   ${StyleSwitchInput}:checked + && {
-    transform: translateX(0);
+    transform: translateX(-100%);
+    position: absolute;
   }
 
   @media(max-width: 500px) {

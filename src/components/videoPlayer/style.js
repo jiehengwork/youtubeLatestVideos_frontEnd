@@ -1,12 +1,16 @@
 import styled from "styled-components";
 
+const EmbedVideoContainer = styled.div`
+  width: 100%;
+`;
 const AutoHeightDiv = styled.div`
-  margin-left: 5%;
+  // margin-left: 5%;
+  margin-left: auto;
   position: relative;
-  width: 70%;
+  width: 85%;
   height: 0;
-  padding-bottom: 39.375%;
-
+  padding-bottom: calc((85% * 9) / 16);
+  
   @media(max-width: 500px) {
     margin: 0;
     width: 100%;
@@ -22,4 +26,4 @@ const StyleIframe = styled.iframe`
   border: none;
 `;
 
-export { AutoHeightDiv, StyleIframe }
+export { EmbedVideoContainer, AutoHeightDiv, StyleIframe }

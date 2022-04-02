@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import EmbedPlayer from './components/videoPlayer/EmbedPlayer';
 import SideBar from './components/sideBar/SideBar';
 // css
-import { AppStyle } from './style';
+import { AppStyle, StyleViewDiv } from './style';
 
 function App() {
 
@@ -13,8 +13,10 @@ function App() {
 
   return (
     <AppStyle className="App">
-      <SideBar/>
-      <EmbedPlayer/>
+      <StyleViewDiv>
+        <SideBar/>
+        <EmbedPlayer/>
+      </StyleViewDiv>
     </AppStyle>
   );
 }

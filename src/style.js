@@ -5,4 +5,10 @@ const AppStyle = styled.div`
   position: relative;
 `;
 
-export {AppStyle};
+const StyleViewDiv = styled.div`
+  display: flex;
+  width: 80vw;
+  height: 100%;
+`;
+
+export { AppStyle, StyleViewDiv };
