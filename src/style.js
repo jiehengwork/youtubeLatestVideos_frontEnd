@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
-const AppStyle = styled.div`
+const StyleAppDiv = styled.div`
   height: 100%;
   position: relative;
+  display: flex;
 `;
 
 const StyleViewDiv = styled.div`
@@ -11,4 +12,4 @@ const StyleViewDiv = styled.div`
   height: 100%;
 `;
 
-export { AppStyle, StyleViewDiv };
+export { StyleAppDiv, StyleViewDiv };

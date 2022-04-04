@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 // css
 import { StyleA, StyleImg, StyleP, StyleButton } from "./style";
 
+// 更新 LocalStorage
 const updateLocalStorage = (func) => {
   let subscriptArrayStr = localStorage.getItem('subscriptArray');
   let subscriptArray = subscriptArrayStr.split(',')
@@ -31,11 +32,18 @@ const ChannelItem = ({ data }) => {
     if ( subscriptionStatus === false) {
       // 儲存頻道資訊
       let channelData = {
+        // channel
         'channelId': data.channelId,
         'channelTitle': data.channelTitle,
         'channelSmallImg': data.channelSmallImg,
         'channelMediumImg': data.channelMediumImg,
         'channelBigImg': data.channelBigImg,
+        // video
+        'videoId': 'just_subscribed',
+        'videoTitle': 'just_subscribed',
+        'videoSmallImg': 'just_subscribed',
+        'videoMediumImg': 'just_subscribed',
+        'videoBigImg': 'just_subscribed',
       };
       channelData = JSON.stringify(channelData);
       localStorage.setItem(data.channelId, channelData);

@@ -7,9 +7,9 @@ const AutoHeightDiv = styled.div`
   // margin-left: 5%;
   margin-left: auto;
   position: relative;
-  width: 85%;
+  width: 95%;
   height: 0;
-  padding-bottom: calc((85% * 9) / 16);
+  padding-bottom: calc((95% * 9) / 16);
   
   @media(max-width: 500px) {
     margin: 0;

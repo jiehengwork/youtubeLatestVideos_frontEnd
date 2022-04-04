@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import EmbedPlayer from './components/videoPlayer/EmbedPlayer';
 import SideBar from './components/sideBar/SideBar';
+import VideoBar from './components/videoBar/VideoBar';
 // css
-import { AppStyle, StyleViewDiv } from './style';
+import { StyleAppDiv, StyleViewDiv } from './style';
 
 function App() {
 
@@ -12,12 +13,13 @@ function App() {
   }
 
   return (
-    <AppStyle className="App">
+    <StyleAppDiv className="App">
       <StyleViewDiv>
         <SideBar/>
         <EmbedPlayer/>
       </StyleViewDiv>
-    </AppStyle>
+      <VideoBar/>
+    </StyleAppDiv>
   );
 }
 
