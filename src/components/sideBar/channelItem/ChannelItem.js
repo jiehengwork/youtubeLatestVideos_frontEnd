@@ -39,11 +39,12 @@ const ChannelItem = ({ data }) => {
         'channelMediumImg': data.channelMediumImg,
         'channelBigImg': data.channelBigImg,
         // video
-        'videoId': 'just_subscribed',
-        'videoTitle': 'just_subscribed',
-        'videoSmallImg': 'just_subscribed',
-        'videoMediumImg': 'just_subscribed',
-        'videoBigImg': 'just_subscribed',
+        'seen': 'no_new',
+        'videoId': 'no_new',
+        'videoTitle': 'no_new',
+        'videoSmallImg': 'no_new',
+        'videoMediumImg': 'no_new',
+        'videoBigImg': 'no_new',
       };
       channelData = JSON.stringify(channelData);
       localStorage.setItem(data.channelId, channelData);

@@ -4,6 +4,9 @@ const StyleVideoItemDiv = styled.div`
   width: 90%;
   height: 10vh;
   display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2vh;
 `;
 
 const StyleImg = styled.img`
@@ -12,7 +15,7 @@ const StyleImg = styled.img`
 `;
 
 const StyleDiv = styled.div`
-  width: 40%;
+  width: 50%;
 `;
 
 const StyleH3 = styled.h3`
