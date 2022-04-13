@@ -4,6 +4,8 @@ import axios from 'axios';
 import VideoItem from "./videoItem/VideoItem";
 // css
 import { StyleVideoBarDiv } from './style';
+// redux
+import { useSelector, useDispatch }  from 'react-redux';
 
 // 「同步」處理迴圈
 async function asyncForEach( array, callback ) {
@@ -14,8 +16,9 @@ async function asyncForEach( array, callback ) {
 
 const VideoBar = () => {
   // 有新影片的頻道清單
-  const [ updateArray, setUpdateArray ] = useState([]);
   console.log('render')
+  // redux
+  const updateArrayDispatch = useDispatch();
 
   useEffect(() => {
     // 從 localhost 中取出 訂閱的頻道清單
@@ -56,11 +59,17 @@ const VideoBar = () => {
     // 對所有訂閱的頻道做最新影片檢查 (同步 避免多次重新渲染)
     const checkAll = (async() => {
       await asyncForEach( subscriptArray, checkNewVideo )
-      setUpdateArray( array )
+      updateArrayDispatch({
+        type: 'UPDATE_ARRAY',
+        payload: { newArray: array }
+      })
+      // setUpdateArray( array )
     })()
 
   }, [])
-  
+
+
+  const updateArray = useSelector( state => state.updateArray);
   let videoItemArray = updateArray.map( item => {
     let itemData = localStorage.getItem( item )
     itemData = JSON.parse(itemData);

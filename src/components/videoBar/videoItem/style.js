@@ -7,6 +7,7 @@ const StyleVideoItemDiv = styled.div`
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 2vh;
+  cursor: pointer;
 `;
 
 const StyleImg = styled.img`

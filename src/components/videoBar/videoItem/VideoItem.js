@@ -8,10 +8,10 @@ const VideoItem = ({ data }) => {
 
   return (
     <StyleVideoItemDiv>
-      <StyleImg src={ data.videoSmallImg } alt="channelImg"/>
+      <StyleImg title={data.videoTitle} src={ data.videoSmallImg } alt="channelImg"/>
       <StyleDiv>
-        <StyleH3>{ data.videoTitle }</StyleH3>
-        <StyleP>{ data.channelTitle }</StyleP>
+        <StyleH3 title={data.videoTitle}>{ data.videoTitle }</StyleH3>
+        <StyleP title={data.channelTitle}>{ data.channelTitle }</StyleP>
       </StyleDiv>
     </StyleVideoItemDiv>
 )};
