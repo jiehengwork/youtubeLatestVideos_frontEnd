@@ -3,7 +3,7 @@ import EmbedPlayer from './components/videoPlayer/EmbedPlayer';
 import SideBar from './components/sideBar/SideBar';
 import VideoBar from './components/videoBar/VideoBar';
 // css
-import { StyleAppDiv, StyleViewDiv } from './style';
+import { StyleAppDiv } from './style';
 // redux
 import { Provider } from 'react-redux';
 import { projectStore } from './redux/store';
@@ -18,10 +18,8 @@ function App() {
   return (
     <Provider store={ projectStore }>
       <StyleAppDiv className="App">
-        <StyleViewDiv>
-          <SideBar/>
-          <EmbedPlayer/>
-        </StyleViewDiv>
+        <SideBar/>
+        <EmbedPlayer/>
         <VideoBar/>
       </StyleAppDiv>
     </Provider>

@@ -18,8 +18,9 @@ const StyleAside = styled.aside`
     transform: translateX(-100%);
     position: absolute;
   }
-
+  
   @media(max-width: 500px) {
+    position: absolute;
     width: 100%;
   }
 `;

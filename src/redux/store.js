@@ -1,5 +1,5 @@
 import { createStore } from "redux";
-import { updateArrayReducer } from "./reducer";
+import { updateArrayReducer } from "./updateArrayReducer/updateArrayReducer";
 
 const projectStore = createStore( updateArrayReducer );
 

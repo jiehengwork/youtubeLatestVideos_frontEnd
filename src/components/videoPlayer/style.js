@@ -4,7 +4,6 @@ const EmbedVideoContainer = styled.div`
   width: 100%;
 `;
 const AutoHeightDiv = styled.div`
-  // margin-left: 5%;
   margin-left: auto;
   position: relative;
   width: 95%;
@@ -12,9 +11,7 @@ const AutoHeightDiv = styled.div`
   padding-bottom: calc((95% * 9) / 16);
   
   @media(max-width: 500px) {
-    margin: 0;
-    width: 100%;
-    padding-bottom: 56.25%;
+    margin-right: auto;
   }
 `;
 const StyleIframe = styled.iframe`

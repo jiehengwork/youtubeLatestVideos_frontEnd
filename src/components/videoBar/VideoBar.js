@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 // component
 import VideoItem from "./videoItem/VideoItem";
@@ -16,8 +16,6 @@ async function asyncForEach( array, callback ) {
 
 const VideoBar = () => {
   // 有新影片的頻道清單
-  console.log('render')
-  // redux
   const updateArrayDispatch = useDispatch();
 
   useEffect(() => {

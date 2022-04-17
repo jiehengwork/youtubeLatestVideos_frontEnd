@@ -4,12 +4,10 @@ const StyleAppDiv = styled.div`
   height: 100%;
   position: relative;
   display: flex;
+
+  @media(max-width: 500px) {
+    display: block;
+  }
 `;
 
-const StyleViewDiv = styled.div`
-  display: flex;
-  width: 80vw;
-  height: 100%;
-`;
-
-export { StyleAppDiv, StyleViewDiv };
+export { StyleAppDiv };

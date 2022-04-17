@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyleVideoItemDiv = styled.div`
+const StyleVideoItemA = styled.a`
   width: 90%;
   height: 10vh;
   display: flex;
@@ -8,6 +8,11 @@ const StyleVideoItemDiv = styled.div`
   margin-right: auto;
   margin-bottom: 2vh;
   cursor: pointer;
+  
+  @media(max-width: 500px) {
+    margin-bottom: 0;
+    margin-top: 2vh;
+  }
 `;
 
 const StyleImg = styled.img`
@@ -31,4 +36,4 @@ const StyleP = styled.p`
   text-overflow: ellipsis;
 `;
 
-export { StyleVideoItemDiv, StyleImg, StyleDiv, StyleH3, StyleP }
+export { StyleVideoItemA, StyleImg, StyleDiv, StyleH3, StyleP }
