@@ -12,7 +12,6 @@ const EmbedPlayer = () => {
   const [ videoId, setVideoId ] = useState('hiSW0LRHmyQ');
   const [ channelId, setChannelId ] = useState('');
 
-  
   // 隨 updateArray 改變主畫面的影片
   const updateArray = useSelector( state => state.updateArray )
   useEffect(() => {
@@ -20,26 +19,34 @@ const EmbedPlayer = () => {
       setChannelId( updateArray[0] )
       let firstChannel = updateArray[0];
       let data = JSON.parse(localStorage.getItem(firstChannel));
-      setVideoId(data.videoId);
+      setVideoId( data.videoId );
     }
   }, [ updateArray ])
-
+  
   useEffect(() => {
-    if (window.YT) {
+    window.YT.ready(() => {
       new window.YT.Player('EmbedVideo', {
         events: {
           'onStateChange': function(event) {
-            // 影片播放完畢後，更新 subscriptArray 移除撥放完的 channelId
+            // 影片播放完畢後
             if (event.data === window.YT.PlayerState.ENDED) {
+              // 更新 subscriptArray 移除撥放完的 channelId
               updateArrayDispatch({
                 type: 'DELETE_ITEM',
                 payload: { item: channelId }
               })
+
+              // 更新 localStorage 中此 channelId 的 seen(看過的影片Id)
+              let channelData = localStorage.getItem( channelId )
+              channelData = JSON.parse( channelData )
+              channelData.seen = videoId
+              channelData = JSON.stringify( channelData )
+              localStorage.setItem( channelId, channelData )
             }
           }
         }
       });
-    }
+    })
   })
 
   return (

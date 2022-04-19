@@ -12,9 +12,8 @@ const updateArrayReducer = ( state = initState, action ) => {
     case DELETE_ITEM: {
       let item = action.payload.item;
       let arrayCopy = [ ...state.updateArray ]
-      let newArray = arrayCopy.splice( arrayCopy.indexOf(item), 1 )
-      console.log(newArray)
-      return { updateArray: newArray };
+      arrayCopy.splice( arrayCopy.indexOf(item), 1 )
+      return { updateArray: arrayCopy };
     }
     case PUT_FIRST: {
       const item = action.payload.item;
