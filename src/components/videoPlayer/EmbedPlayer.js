@@ -8,38 +8,11 @@ const EmbedPlayer = () => {
 
   const updateArrayDispatch = useDispatch();
 
-  const [ videoId, setVideoId ] = useState('');
+  // const [ videoId, setVideoId ] = useState('');
+  const [ videoId, setVideoId ] = useState('hiSW0LRHmyQ');
   const [ channelId, setChannelId ] = useState('');
 
-  useEffect(() => {
-    if (!window.YT) {
-      const tag = document.createElement('script');
-      tag.src = 'https://www.youtube.com/iframe_api';
-      const firstScript = document.getElementsByTagName('script')[0];
-      firstScript.parentNode.insertBefore(tag, firstScript);
-      
-      window.onYouTubeIframeAPIReady = () => {
-        console.log('test')
-        new window.YT.Player('EmbedVideo', {
-          events: {
-            'onStateChange': function(event) {
-              // 影片播放完畢後 更新 subscriptArray
-              console.log('test')
-              if (event.data === window.YT.PlayerState.ENDED) {
-                console.log('test1')
-                updateArrayDispatch({
-                  type: 'DELETE_ITEM',
-                  payload: { item: channelId }
-                })
-                console.log('test2')
-              }
-            }
-          }
-        });
-      }
-    }
-  }, [])
-
+  
   // 隨 updateArray 改變主畫面的影片
   const updateArray = useSelector( state => state.updateArray )
   useEffect(() => {
@@ -51,10 +24,28 @@ const EmbedPlayer = () => {
     }
   }, [ updateArray ])
 
+  useEffect(() => {
+    if (window.YT) {
+      new window.YT.Player('EmbedVideo', {
+        events: {
+          'onStateChange': function(event) {
+            // 影片播放完畢後，更新 subscriptArray 移除撥放完的 channelId
+            if (event.data === window.YT.PlayerState.ENDED) {
+              updateArrayDispatch({
+                type: 'DELETE_ITEM',
+                payload: { item: channelId }
+              })
+            }
+          }
+        }
+      });
+    }
+  })
+
   return (
     <EmbedVideoContainer>
       <AutoHeightDiv>
-        <StyleIframe title="EmbedVideo" id="EmbedVideo" src={"https://www.youtube.com/embed/"+ videoId +'?enablejsapi=1'}></StyleIframe>
+        <StyleIframe title="EmbedVideo" id="EmbedVideo" src={"https://www.youtube.com/embed/"+ videoId +"?enablejsapi=1"}></StyleIframe>
       </AutoHeightDiv>
     </EmbedVideoContainer>
   );
