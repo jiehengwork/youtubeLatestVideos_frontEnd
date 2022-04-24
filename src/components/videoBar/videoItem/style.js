@@ -1,11 +1,9 @@
 import styled from 'styled-components';
 
 const StyleVideoItemA = styled.a`
-  width: 90%;
+  width: 100%;
   height: 10vh;
   display: flex;
-  margin-left: auto;
-  margin-right: auto;
   margin-bottom: 2vh;
   cursor: pointer;
   
@@ -28,12 +26,14 @@ const StyleH3 = styled.h3`
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  color: #ffffff;
 `;
 
 const StyleP = styled.p`
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  color: #ffffff;
 `;
 
 export { StyleVideoItemA, StyleImg, StyleDiv, StyleH3, StyleP }

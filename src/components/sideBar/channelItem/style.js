@@ -27,6 +27,7 @@ const StyleP = styled.p`
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  color: #f7f7f7;
 `;
 const StyleButton = styled.button`
   margin-left: auto;

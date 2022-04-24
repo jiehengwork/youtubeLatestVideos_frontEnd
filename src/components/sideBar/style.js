@@ -9,7 +9,7 @@ const StyleAside = styled.aside`
   height: 100%;
   width: 15vw;
   position: relative;
-  background-color: #E3D9C6;
+  background-color: #202020;
   
   // 側邊欄收合
   transition: 0.2s;
@@ -33,6 +33,11 @@ const StyleLabel = styled.label`
   margin-left: ${props => props.fixedSwitch ? '.5%' : '0'};
   position: ${props => props.fixedSwitch ?  'absolute' : 'AUTO'};
   z-index: ${props => props.fixedSwitch ? '1' : '0'};
+  color: #f7f7f7;
+
+  ${StyleSwitchInput}:checked + && {
+    color: #000000;
+  }
   
   @media(max-width: 500px) {
     margin-left: ${props => props.fixedSwitch ? '5%' : '0'};
@@ -40,9 +45,10 @@ const StyleLabel = styled.label`
 `;
 const StyleA = styled.a`
   text-decoration: none;
+  color: #f7f7f7;
 
   &:visited {
-    color: #000000;
+    color: #f7f7f7;
   }
 `;
 
