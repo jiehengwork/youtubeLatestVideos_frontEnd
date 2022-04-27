@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import axios from 'axios';
+// api
+import { apiNewVideo } from '../../api/api';
 // component
 import VideoItem from "./videoItem/VideoItem";
 // css
@@ -29,7 +30,7 @@ const VideoBar = () => {
     // 檢查頻道是否有新影片
     const checkNewVideo = async(item) => {
       // 取得頻道最新影片資訊
-      await axios.post('http://localhost:9000/YouTubeAPI/channel/searchNewVideo', {
+      await apiNewVideo({
         channelId: item
       })
       .then( res => {

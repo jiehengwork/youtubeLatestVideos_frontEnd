@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
-// axios
-import axios from 'axios';
+// api
+import { apiChannel } from "../../../api/api";
 // css
 import { StyleSearchBlock, StyleForm, StyleInput, StyleButton } from "./style";
 // component
@@ -22,7 +22,7 @@ const SearchBlock = () => {
 
   // axios 後端API 取得頻道資訊
   const callSearchChannelAPI = () => {
-    axios.post('http://localhost:9000/YouTubeAPI/channel/searchChannel', {
+    apiChannel({
       channelName: channelName
     })
     .then( res => {

@@ -1,13 +1,10 @@
 import axios from 'axios';
 
 // YouTube頻道資訊 API
-const channelRequest = axios.create({
-  baseURL: ''
+const searchRequest = axios.create({
+  baseURL: 'https://youtube-new-video-auto-player.herokuapp.com/YouTubeAPI/search/'
 });
 
-// YouTube影片資訊 API
-const videoRequest = axios.create({
-  baseURL: ''
-});
 
-export const apiChannelId = data => channelRequest.post('', data);
+export const apiChannel = data => searchRequest.post('/searchChannel', data);
+export const apiNewVideo = data => searchRequest.post('/searchNewVideo', data);

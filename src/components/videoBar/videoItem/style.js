@@ -10,6 +10,7 @@ const StyleVideoItemA = styled.a`
   @media(max-width: 500px) {
     margin-bottom: 0;
     margin-top: 2vh;
+    margin-left: 5%;
   }
 `;
 

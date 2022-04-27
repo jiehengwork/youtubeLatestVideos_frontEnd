@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 // css
-import { EmbedVideoContainer,AutoHeightDiv, StyleIframe, OptionDiv } from "./style";
+import { EmbedVideoContainer,AutoHeightDiv, StyleIframe, StyleDiv, OptionDiv } from "./style";
 // fontawesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
@@ -70,11 +70,21 @@ const EmbedPlayer = () => {
   const iconStyle = {
     'margin-right': '1vw'
   }
+ 
+  const webInfo = (
+    <div>
+      <p>這是一個會自動列出 YouTube 頻道新影片的網頁</p>
+      <br/>
+      <p>節省您各別搜尋的時間，同時減少被其他影片吸引而花太多時間觀看的機會</p>
+    </div>
+  )
+  
+
 
   return (
     <EmbedVideoContainer>
       <AutoHeightDiv>
-        { ( videoId !== '' ) ? <StyleIframe title="EmbedVideo" id="EmbedVideo" src={"https://www.youtube.com/embed/"+ videoId +"?enablejsapi=1"}></StyleIframe> : null }
+        { ( videoId !== '' ) ? <StyleIframe title="EmbedVideo" id="EmbedVideo" src={"https://www.youtube.com/embed/"+ videoId +"?enablejsapi=1"}></StyleIframe> : <StyleDiv>{ webInfo }</StyleDiv> }
       </AutoHeightDiv>
       <OptionDiv>
         <p>{ ( videoId !== '' ) ? videoTitle : "尚無新影片!" }</p>

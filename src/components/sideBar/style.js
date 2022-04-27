@@ -19,6 +19,12 @@ const StyleAside = styled.aside`
     position: absolute;
   }
   
+  // 手機橫向
+  @media(max-width: 1000px) {
+    width: 25vw;
+  }
+
+  // 手機直向
   @media(max-width: 500px) {
     position: absolute;
     width: 100%;
