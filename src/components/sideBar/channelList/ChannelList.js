@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 // component
 import ChannelItem from "../channelItem/ChannelItem";
 // css
@@ -6,9 +6,16 @@ import { StyledDiv } from './style';
 
 const ChannelList = () => {
 
-  let subscriptArrayStr = localStorage.getItem('subscriptArray');
-  let subscriptArray = subscriptArrayStr.split(',');
-  subscriptArray.splice(0, 1);
+  // 訂閱頻道清單
+  const [ subscriptArray, setSubscriptArray ] = useState([])
+
+  // 首次渲染後，從 localStorage 取出儲存的 array
+  useEffect(() => {
+    let localArrayStr = localStorage.getItem('subscriptArray');
+    let localArray = localArrayStr.split(',');
+    localArray.splice(0, 1)
+    setSubscriptArray(localArray)
+  },[])
 
   let ChannelItemArray = subscriptArray.map( item => {
     let itemData = localStorage.getItem(item);

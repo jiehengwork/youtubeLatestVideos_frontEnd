@@ -68,7 +68,7 @@ const EmbedPlayer = () => {
   }
 
   const iconStyle = {
-    'margin-right': '1vw'
+    'marginRight': '1vw'
   }
  
   const webInfo = (
