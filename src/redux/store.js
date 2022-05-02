@@ -1,6 +1,12 @@
-import { createStore } from "redux";
+import { createStore, combineReducers } from "redux";
 import { updateArrayReducer } from "./updateArrayReducer/updateArrayReducer";
+import { subscriptArrayReducer } from "./subscriptArrayReducer/subscriptArrayReducer";
 
-const projectStore = createStore( updateArrayReducer );
+const rootReducer = combineReducers({
+  updateArrayReducer,
+  subscriptArrayReducer
+});
+
+const projectStore = createStore( rootReducer );
 
 export { projectStore }

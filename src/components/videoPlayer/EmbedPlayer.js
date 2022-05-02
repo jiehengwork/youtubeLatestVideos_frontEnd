@@ -1,42 +1,36 @@
 import React, { useState, useEffect } from "react";
-// css
-import { EmbedVideoContainer,AutoHeightDiv, StyleIframe, StyleDiv, OptionDiv } from "./style";
-// fontawesome
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
-// redux
-import { useSelector, useDispatch } from 'react-redux';
+import { EmbedVideoContainer,AutoHeightDiv, StyleIframe, StyleDiv, OptionDiv } from "./style"; // css
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // font awesome
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons"; // font awesome
+import { useSelector, useDispatch } from 'react-redux'; // redux
 
-const EmbedPlayer = () => {
-
+const EmbedPlayer = () => { // 在主畫面顯示 有新影片的頻道列表 的第一個頻道的影片
   const updateArrayDispatch = useDispatch();
 
   const [ videoId, setVideoId ] = useState('');
   const [ channelId, setChannelId ] = useState('');
   const [ videoTitle, setVideoTitle ] = useState('');
 
-  // 隨 updateArray 改變主畫面的影片
-  const updateArray = useSelector( state => state.updateArray )
-  useEffect(() => {
+  const updateArray = useSelector( state => state.updateArrayReducer.updateArray ) // 有新影片的頻道列表
+
+  useEffect(() => { // 列表更新就重新渲染列表的第一個頻道的影片
     if ( updateArray.length !== 0 ) {
-      setChannelId( updateArray[0] )
       let firstChannel = updateArray[0];
       let data = JSON.parse(localStorage.getItem(firstChannel));
+      setChannelId( updateArray[0] )
       setVideoId( data.videoId );
       setVideoTitle( data.videoTitle );
     }
   }, [ updateArray ])
   
-  useEffect(() => {
-    window.YT.ready(() => {
+  useEffect(() => { // 每次渲染 監聽 YouTube 嵌入影片的播放狀態
+    window.YT.ready(() => { // YouTube JS 檔載入完成
       new window.YT.Player('EmbedVideo', {
         events: {
-          'onStateChange': function(event) {
-            // 影片播放完畢後
-            if (event.data === window.YT.PlayerState.ENDED) {
-              // 更新 subscriptArray 移除撥放完的 channelId
-              updateArrayDispatch({
-                type: 'DELETE_ITEM',
+          'onStateChange': function(event) { // 當播放狀態改變
+            if (event.data === window.YT.PlayerState.ENDED) { // 當狀態為撥放完畢
+              updateArrayDispatch({ // 更新 有新影片的頻道列表 移除撥放完的 channelId
+                type: 'UP_DELETE_ITEM',
                 payload: { item: channelId }
               })
 
@@ -53,12 +47,12 @@ const EmbedPlayer = () => {
     })
   })
 
-  const deleteVideoHandler = () => {
-    // 更新 subscriptArray 移除撥放完的 channelId
-    updateArrayDispatch({
-      type: 'DELETE_ITEM',
+  const deleteVideoHandler = () => { // 點擊 刪除此影片的按鈕
+    updateArrayDispatch({ // 更新 有新影片的頻道列表 移除撥放完的 channelId
+      type: 'UP_DELETE_ITEM',
       payload: { item: channelId }
     })
+
     // 更新 localStorage 中此 channelId 的 seen(看過的影片Id)
     let channelData = localStorage.getItem( channelId )
     channelData = JSON.parse( channelData )
@@ -76,6 +70,9 @@ const EmbedPlayer = () => {
       <p>這是一個會自動列出 YouTube 頻道新影片的網頁</p>
       <br/>
       <p>節省您各別搜尋的時間，同時減少被其他影片吸引而花太多時間觀看的機會</p>
+      <br/>
+      <br/>
+      <p>您訂閱的頻道目前沒有新影片！</p>
     </div>
   )
   

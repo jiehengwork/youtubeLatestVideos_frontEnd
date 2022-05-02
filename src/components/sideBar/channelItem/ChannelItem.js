@@ -1,26 +1,17 @@
 import React, { useState, useEffect } from "react";
-// css
-import { StyleA, StyleImg, StyleP, StyleButton } from "./style";
-
-// 更新 LocalStorage
-const updateLocalStorage = (func) => {
-  let subscriptArrayStr = localStorage.getItem('subscriptArray');
-  let subscriptArray = subscriptArrayStr.split(',')
-  func(subscriptArray);
-  subscriptArrayStr = subscriptArray.join(',')
-  localStorage.setItem('subscriptArray', subscriptArrayStr)
-}
+import { StyleA, StyleImg, StyleP, StyleButton } from "./style"; // css
+import { useDispatch } from "react-redux"; // redux
 
 const ChannelItem = ({ data }) => {
-  // 如果是從 localStorage 中取出的 data ，轉成 Object
-  if ((typeof data) === 'string') {
+  const subscriptArrayDispatch = useDispatch();
+  const [ dispalyState, setDispalyState ] = useState(true) // 是否要產生此元件的旗標 ( 點擊訂閱/退訂按鈕後改變 )
+  const [ subscriptionStatus, setSubscriptionStatus ] = useState(false) // 訂閱狀態
+
+  if ((typeof data) === 'string') { // 如果是從 localStorage 中取出的 data ，轉成 Object
     data = JSON.parse(data)
   }
 
-  const [ subscriptionStatus, setSubscriptionStatus ] = useState(false)
-  
-  useEffect(() => {
-    // 檢查訂閱狀態 從localStorage
+  useEffect(() => { // 檢查是否有訂閱此頻道 ( localStorage 中有無此頻道資料)
     if (localStorage.getItem(data.channelId) !== null) {
       setSubscriptionStatus(true);
     } else {
@@ -28,9 +19,10 @@ const ChannelItem = ({ data }) => {
     }
   },[data]);
 
-  const subscriptHandler = () => {
-    if ( subscriptionStatus === false) {
-      // 儲存頻道資訊
+  const subscriptHandler = () => { // 使用者點擊 訂閱按鈕
+    setDispalyState(false)
+
+    if ( subscriptionStatus === false) { // 訂閱
       let channelData = {
         // channel
         'channelId': data.channelId,
@@ -47,29 +39,36 @@ const ChannelItem = ({ data }) => {
         'videoBigImg': 'no_new',
       };
       channelData = JSON.stringify(channelData);
-      localStorage.setItem(data.channelId, channelData);
+      localStorage.setItem(data.channelId, channelData); // 儲存頻道資訊
 
-      // 更新訂閱清單
-      updateLocalStorage((array) => {array.push(data.channelId)});
-    } else {
-      // 刪除頻道資訊
-      localStorage.removeItem(data.channelId);
+      subscriptArrayDispatch({ // 更新訂閱清單
+        type: 'SUB_ADD_ITEM',
+        payload: { item: data.channelId }
+      })
+    } else { //退訂
+      localStorage.removeItem(data.channelId); // 刪除頻道資訊
       
-      // 更新訂閱清單
-      updateLocalStorage((array) => {
-        let removeIndex = array.indexOf(data.channelId)
-        array.splice(removeIndex, 1);
-      });
+      subscriptArrayDispatch({ // 更新訂閱清單
+        type: 'SUB_DELETE_ITEM',
+        payload: { item: data.channelId }
+      })
     }
-    setSubscriptionStatus(current => !current);
+
+    setSubscriptionStatus(current => !current); // 改變按鈕文字
   };
 
-  return(
-    <StyleA href="/#">
-      <StyleImg src={ data.channelSmallImg } alt="channelImg"></StyleImg>
-      <StyleP>{ data.channelTitle }</StyleP>
-      <StyleButton onClick={ subscriptHandler }>{ subscriptionStatus ? '退訂' : '訂閱' }</StyleButton>
-    </StyleA>
-)};
+  if (dispalyState) { // 顯示元件
+    return(
+        <StyleA href="/#">
+          <StyleImg src={ data.channelSmallImg } alt="channelImg"></StyleImg>
+          <StyleP>{ data.channelTitle }</StyleP>
+          <StyleButton onClick={ subscriptHandler }>{ subscriptionStatus ? '退訂' : '訂閱' }</StyleButton>
+        </StyleA>
+  )} else { // 點擊訂閱/退訂按鈕後
+    return(
+      <></>
+    )
+  }
+};
 
 export default ChannelItem;

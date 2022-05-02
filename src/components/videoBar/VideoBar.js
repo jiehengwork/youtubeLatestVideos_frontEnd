@@ -1,47 +1,33 @@
 import React, { useEffect } from 'react';
-// api
-import { apiNewVideo } from '../../api/api';
-// component
+import { apiNewVideo } from '../../api/api'; // api
+import { StyleVideoBarDiv } from './style'; // css
+import { useSelector, useDispatch }  from 'react-redux'; // redux
 import VideoItem from "./videoItem/VideoItem";
-// css
-import { StyleVideoBarDiv } from './style';
-// redux
-import { useSelector, useDispatch }  from 'react-redux';
 
-// 「同步」處理迴圈
-async function asyncForEach( array, callback ) {
+async function asyncForEach( array, callback ) { // 「同步」迴圈
   for( let i = 0; i < array.length; i++ ) {
     await callback(array[i]);
   }
 }
 
 const VideoBar = () => {
-  // 有新影片的頻道清單
   const updateArrayDispatch = useDispatch();
-
+  const subscriptArray = useSelector( state => state.subscriptArrayReducer.subscriptArray); // 從 Redux 取得訂閱頻道列表
+  
   useEffect(() => {
-    // 從 localhost 中取出 訂閱的頻道清單
-    const subscriptArrayStr = localStorage.getItem('subscriptArray');
-    const subscriptArray = subscriptArrayStr.split(',')
-    subscriptArray.splice(0, 1);
-    
-    // 暫存陣列
-    let array = []
-    // 檢查頻道是否有新影片
-    const checkNewVideo = async(item) => {
-      // 取得頻道最新影片資訊
-      await apiNewVideo({
+    let array = [] // 暫存陣列
+
+    const checkNewVideo = async( item ) => { // 檢查頻道是否有新影片
+      await apiNewVideo({ // call API 取得頻道最新影片資訊
         channelId: item
       })
       .then( res => {
-        // localStorage 儲存的舊資料
-        let localChannelData = localStorage.getItem(item);
+        let localChannelData = localStorage.getItem(item); // localStorage 儲存的舊資料
         localChannelData = JSON.parse(localChannelData);
         
-        // 最新影片跟舊資料比對，若最新影片跟看過的影片(seen) 不同，代表是新的影片 加入更新清單
-        if ( localChannelData.seen !== res.data.videoId ) {
+        if ( localChannelData.seen !== res.data.videoId ) { // 最新影片跟舊資料比對，若最新影片跟看過的影片(seen) 不同，代表是新的影片 加入更新清單
           let channelId = localChannelData.channelId
-          array.push( channelId )
+          array.push( channelId ) // 將有新影片的 頻道ID 加入陣列
           
           // 更新 localStorage 的資料
           localChannelData.videoId = res.data.videoId
@@ -55,24 +41,35 @@ const VideoBar = () => {
       })
     }
 
-    // 對所有訂閱的頻道做最新影片檢查 (同步 避免多次重新渲染)
-    const checkAll = (async() => {
-      await asyncForEach( subscriptArray, checkNewVideo )
+    const checkAll = ( async() => { // 對所有訂閱的頻道做最新影片檢查 ( IIFE )
+      if ( subscriptArray.length !== 0 ) {
+        await asyncForEach( subscriptArray, checkNewVideo )
+      } else { // 如果訂閱列表是空的
+        updateArrayDispatch({ // 清空更新列表
+          type: 'UP_UPDATE',
+          payload: { newArray: array }
+        })
+      }
+
+      // 檢查完所有訂閱頻道，將有新影片的頻道列表更新
       updateArrayDispatch({
-        type: 'UPDATE_ARRAY',
+        type: 'UP_UPDATE',
         payload: { newArray: array }
       })
-      // setUpdateArray( array )
     })()
+    
+  }, [ updateArrayDispatch, subscriptArray ])
 
-  }, [])
+  const updateArray = useSelector( state => state.updateArrayReducer.updateArray); // 有新影片的頻道列表
 
-
-  const updateArray = useSelector( state => state.updateArray);
   let videoItemArray = updateArray.map( item => {
     let itemData = localStorage.getItem( item )
     itemData = JSON.parse(itemData);
-    return <VideoItem data={ itemData } key={ item }/>
+    if ( itemData !== null ) {
+      return <VideoItem data={ itemData } key={ item }/>
+    } else {
+      return null
+    }
   })
 
   return (

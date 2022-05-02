@@ -7,9 +7,11 @@ const StyleSwitchInput = styled.input`
 const StyleAside = styled.aside`
   z-index: 1;
   height: 100%;
-  width: 15vw;
+  width: 20vw;
   position: relative;
   background-color: #202020;
+  display: flex;
+  flex-direction: column;
   
   // 側邊欄收合
   transition: 0.2s;
@@ -31,6 +33,7 @@ const StyleAside = styled.aside`
   }
 `;
 const LogoStyleDiv = styled.div`
+  margin-top: 1vh;
   margin-left: 5%;
   height: 5vh;
 `;
@@ -51,6 +54,7 @@ const StyleLabel = styled.label`
 `;
 const StyleA = styled.a`
   text-decoration: none;
+  font-weight: 700;
   color: #f7f7f7;
 
   &:visited {

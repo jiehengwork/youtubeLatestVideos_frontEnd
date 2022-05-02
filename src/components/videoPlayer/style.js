@@ -2,11 +2,12 @@ import styled from "styled-components";
 
 const EmbedVideoContainer = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: column;
 `;
 
 const AutoHeightDiv = styled.div`
   margin-left: auto;
-  margin-right: auto;
   position: relative;
   width: 90%;
   height: 0;
@@ -54,9 +55,10 @@ const StyleDiv = styled.div`
 const OptionDiv = styled.div`
   position: relative;
   overflow: hidden;
+  height: 100%;
   width: 90%;
   margin-top: 5vh;
-  margin-left: 5%;
+  margin-left: 10%;
   padding-bottom: calc(95vh - ((98% * 9) / 16));
   
   @media(max-width: 1000px) {
@@ -75,7 +77,7 @@ const OptionDiv = styled.div`
   
   & button {
     position: absolute;
-    bottom: 0;
+    bottom: 5%;
     right: 0;
     border: none;
     padding: 0.5%;

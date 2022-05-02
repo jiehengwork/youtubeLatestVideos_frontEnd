@@ -1,9 +1,7 @@
 import React from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons'
-// css
-import { StyleAside, StyleA, StyleLabel, LogoStyleDiv, StyleSwitchInput } from "./style";
-// component
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // font awesome
+import { faBars } from '@fortawesome/free-solid-svg-icons' // font awesome
+import { StyleAside, StyleA, StyleLabel, LogoStyleDiv, StyleSwitchInput } from "./style"; // css
 import SearchBlock from "./searchBlock/SearchBlock";
 import ChannelList from "./channelList/ChannelList";
 
