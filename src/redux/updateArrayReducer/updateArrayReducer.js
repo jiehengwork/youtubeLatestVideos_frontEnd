@@ -24,7 +24,6 @@ const updateArrayReducer = ( state = initState, action ) => {
       return { updateArray: arrayCopy }
     }
     case UP_CLEAR: { // 清除列表
-      console.log('UP_CLEAR');
       return { updateArray: [] }
     }
     default: 

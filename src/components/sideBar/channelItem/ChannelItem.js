@@ -37,6 +37,8 @@ const ChannelItem = ({ data }) => {
         'videoSmallImg': 'no_new',
         'videoMediumImg': 'no_new',
         'videoBigImg': 'no_new',
+        // update
+        'lastUpdateTime': '0'
       };
       channelData = JSON.stringify(channelData);
       localStorage.setItem(data.channelId, channelData); // 儲存頻道資訊
