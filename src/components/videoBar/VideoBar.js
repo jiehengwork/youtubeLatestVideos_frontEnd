@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { apiNewVideo } from '../../api/api'; // api
-import { StyleVideoBarDiv } from './style'; // css
+import { StyleVideoBarDiv, PreviewDiv } from './style'; // css
 import { useSelector, useDispatch }  from 'react-redux'; // redux
 import VideoItem from "./videoItem/VideoItem";
 
@@ -15,6 +15,7 @@ const VideoBar = () => {
   const subscriptArray = useSelector( state => state.subscriptArrayReducer.subscriptArray); // 從 Redux 取得訂閱頻道列表
   const updateArray = useSelector( state => state.updateArrayReducer.updateArray); // 有新影片的頻道列表
   const [ videoItemArray, setVideoItemArray ] = useState( [] ); // 子元件列表
+  const opened = useSelector( state => state.previewReducer.preview ) // 預覽模式
   
   useEffect(() => {
     let array = [] // 暫存陣列
@@ -90,9 +91,16 @@ const VideoBar = () => {
     asyncForEach( updateArray, creatBar )
     }, [ updateArray ])
 
+  // 預覽模式
+  let preview = []
+  for (let i = 0; i < 30; i++) {
+    preview.push(<PreviewDiv>預覽用佔位元素</PreviewDiv>)
+  }
+
   return (
     <StyleVideoBarDiv>
       { videoItemArray }
+      { opened && preview }
     </StyleVideoBarDiv>
   )
 };

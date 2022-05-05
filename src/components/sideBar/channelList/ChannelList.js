@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import ChannelItem from "../channelItem/ChannelItem";
-import { StyledDiv } from './style'; // css
+import { StyledDiv, PreviewDiv } from './style'; // css
 import { useSelector, useDispatch } from "react-redux"; // redux
 
 const ChannelList = () => {
   const subscriptArrayDispatch = useDispatch()
+  const opened = useSelector( state => state.previewReducer.preview ) // 預覽模式
 
   useEffect(() => { // 首次渲染後，從 localStorage 取出儲存的訂閱列表
     let localArrayStr = localStorage.getItem('subscriptArray');
@@ -25,9 +26,16 @@ const ChannelList = () => {
     });
   }
 
+  // 預覽模式
+  let preview = []
+  for (let i = 0; i < 30; i++) {
+    preview.push(<PreviewDiv>預覽用佔位元素</PreviewDiv>)
+  }
+
   return(
     <StyledDiv>
-      {ChannelItemArray}
+      { ChannelItemArray }
+      { opened && preview }
     </StyledDiv>
 )};
 

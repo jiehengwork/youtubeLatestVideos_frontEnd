@@ -20,12 +20,13 @@ const AutoHeightDiv = styled.div`
   @media(max-width: 500px) {
     width: 95%;
     padding-bottom: calc((95% * 9) / 16);
+    margin-right: auto;
   }
 `;
 
 const StyleIframe = styled.iframe`
   position: absolute;
-  top: 5vh;
+  top: 10vh;
   left: 0;
   width: 100%;
   height: 100%;
@@ -67,6 +68,7 @@ const OptionDiv = styled.div`
   }
 
   & p {
+    margin-top: 2%;
     width: 100%;
     font-weight: 700;
     color: #ffffff;

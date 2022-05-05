@@ -6,7 +6,7 @@ const ChannelItem = ({ data }) => {
   const subscriptArrayDispatch = useDispatch();
   const [ dispalyState, setDispalyState ] = useState(true) // 是否要產生此元件的旗標 ( 點擊訂閱/退訂按鈕後改變 )
   const [ subscriptionStatus, setSubscriptionStatus ] = useState(false) // 訂閱狀態
-
+  
   if ((typeof data) === 'string') { // 如果是從 localStorage 中取出的 data ，轉成 Object
     data = JSON.parse(data)
   }
@@ -60,14 +60,14 @@ const ChannelItem = ({ data }) => {
   };
 
   if (dispalyState) { // 顯示元件
-    return(
+    return (
         <StyleA href="/#">
           <StyleImg src={ data.channelSmallImg } alt="channelImg"></StyleImg>
           <StyleP>{ data.channelTitle }</StyleP>
           <StyleButton onClick={ subscriptHandler }>{ subscriptionStatus ? '退訂' : '訂閱' }</StyleButton>
         </StyleA>
   )} else { // 點擊訂閱/退訂按鈕後
-    return(
+    return (
       <></>
     )
   }
