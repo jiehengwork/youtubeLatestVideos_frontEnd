@@ -1,19 +1,20 @@
 import React from 'react';
-import { StyleButton } from './style'; // css
-import { useSelector, useDispatch } from 'react-redux'; // redux
+import { Link } from 'react-router-dom';
+
+const styleLink = {
+  'text-decoration': 'none',
+  'position': 'absolute',
+  'top': '3%',
+  'right': '5%',
+  'font-weight': '700',
+  'color': '#f7f7f7',
+  'fontWeight': '700',
+
+}
 
 const InfoButton = () => {
-  const PreviewDispatch = useDispatch()
-  const opened = useSelector( state => state.previewReducer.preview )
-
-  const buttonHandler = () => {
-    PreviewDispatch({
-      type: 'REVERSE',
-    })
-  }
-
   return (
-    <StyleButton onClick={ buttonHandler } styleOpened={ opened }>預覽模式</StyleButton>
+    <Link to='/info' style={ styleLink }>網頁導覽</Link>
   )
 };
 

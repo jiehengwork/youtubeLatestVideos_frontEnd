@@ -3,11 +3,12 @@ import EmbedPlayer from './components/videoPlayer/EmbedPlayer';
 import SideBar from './components/sideBar/SideBar';
 import VideoBar from './components/videoBar/VideoBar';
 import PreviewButton from './components/userAssistance/previewButton/PreviewButton';
+import InfoButton from './components/userAssistance/infoButton/InfoButton';
 import { StyleAppDiv } from './style'; // css
 import { Provider } from 'react-redux'; // redux
 import { projectStore } from './redux/store';
 
-function App() {
+function MainApp() {
 
   if (localStorage.getItem('subscriptArray') === null) {
     let subscriptArrayStr = ''
@@ -21,9 +22,10 @@ function App() {
         <EmbedPlayer/>
         <VideoBar/>
         <PreviewButton/>
+        <InfoButton/>
       </StyleAppDiv>
     </Provider>
   );
 }
 
-export default App;
+export default MainApp;

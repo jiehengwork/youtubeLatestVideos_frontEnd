@@ -21,11 +21,12 @@ const clippath = keyframes`
 const StyleButton = styled.button`
   position: absolute;
   top: 3%;
-  right: 15%;
+  right: 13%;
   border: none;
+  font-weight: 700;
   padding: 0.5%;
-  color: ${ props => props.styleOpened ? '#ffffff' : '#000000' };
-  background-color: ${ props => props.styleOpened ? '#000000' : '#ffffff' };
+  color: ${ props => props.styleOpened ? '#f7f7f7' : '#000000' };
+  background-color: ${ props => props.styleOpened ? '#000000' : '#f7f7f7' };
   
   &:before {
     content: '';
