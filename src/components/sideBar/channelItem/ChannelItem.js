@@ -17,7 +17,7 @@ const ChannelItem = ({ data }) => {
     } else {
       setSubscriptionStatus(false);
     }
-  },[data]);
+  },[ data ]);
 
   const subscriptHandler = () => { // 使用者點擊 訂閱按鈕
     setDispalyState(false)
@@ -59,17 +59,25 @@ const ChannelItem = ({ data }) => {
     setSubscriptionStatus(current => !current); // 改變按鈕文字
   };
 
-  if (dispalyState) { // 顯示元件
+
+  // RETURN
+  if ( data.channelId === 'previewData' ) { // ***預覽元件 不提供訂閱按鈕***
     return (
-        <StyleA href="/#">
-          <StyleImg src={ data.channelSmallImg } alt="channelImg"></StyleImg>
-          <StyleP>{ data.channelTitle }</StyleP>
-          <StyleButton onClick={ subscriptHandler }>{ subscriptionStatus ? '退訂' : '訂閱' }</StyleButton>
-        </StyleA>
-  )} else { // 點擊訂閱/退訂按鈕後
-    return (
-      <></>
+      <StyleA href="/#">
+        <StyleImg src={ data.channelSmallImg } alt="channelImg"></StyleImg>
+        <StyleP>{ data.channelTitle }</StyleP>
+      </StyleA>
     )
+  } else if ( dispalyState ) { // 正常顯示元件
+    return (
+      <StyleA href="/#">
+        <StyleImg src={ data.channelSmallImg } alt="channelImg"></StyleImg>
+        <StyleP>{ data.channelTitle }</StyleP>
+        <StyleButton onClick={ subscriptHandler }>{ subscriptionStatus ? '退訂' : '訂閱' }</StyleButton>
+      </StyleA>
+    )
+  } else { // 點擊訂閱/退訂按鈕後
+    return ( null )
   }
 };
 

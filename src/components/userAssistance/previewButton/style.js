@@ -21,8 +21,9 @@ const clippath = keyframes`
 const StyleButton = styled.button`
   position: absolute;
   top: 3%;
-  right: 13%;
+  right: 14.5%;
   border: none;
+  font-size: 1rem;
   font-weight: 700;
   padding: 0.5%;
   color: ${ props => props.styleOpened ? '#f7f7f7' : '#000000' };
@@ -38,6 +39,16 @@ const StyleButton = styled.button`
     border: 2px solid #ffffff;
     border: ${ props => props.styleOpened ? '2px solid #ffffff' : 'none' };
     animation: ${clippath} 3s infinite linear;
+  }
+
+  @media( max-width: 900px ) {
+    right: 20%;
+  }
+  @media( max-width: 600px ) {
+    right: 25%;
+  }
+  @media( max-width: 300px ) {
+    right: 30%;
   }
 `;
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { apiNewVideo } from '../../api/api'; // api
-import { StyleVideoBarDiv, PreviewDiv } from './style'; // css
+import { StyleVideoBarDiv } from './style'; // css
 import { useSelector, useDispatch }  from 'react-redux'; // redux
 import VideoItem from "./videoItem/VideoItem";
 
@@ -92,9 +92,14 @@ const VideoBar = () => {
     }, [ updateArray ])
 
   // 預覽模式
+  const previewData = {
+    videoSmallImg: '',
+    videoTitle: '預覽元素',
+    channelTitle: '預覽元素',
+  }
   let preview = []
   for (let i = 0; i < 30; i++) {
-    preview.push(<PreviewDiv>預覽用佔位元素</PreviewDiv>)
+    preview.push( <VideoItem data={ previewData } key={ previewData.videoTitle + i }/> )
   }
 
   return (

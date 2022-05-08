@@ -7,17 +7,18 @@ const EmbedVideoContainer = styled.div`
 `;
 
 const AutoHeightDiv = styled.div`
-  margin-left: auto;
   position: relative;
   width: 90%;
   height: 0;
+  top: 10vh;
+  margin-left: auto;
   padding-bottom: calc((90% * 9) / 16);
   
   @media(max-width: 1000px) {
     width: 85%;
     padding-bottom: calc((85% * 9) / 16);
   }
-  @media(max-width: 500px) {
+  @media(max-width: 900px) {
     width: 95%;
     padding-bottom: calc((95% * 9) / 16);
     margin-right: auto;
@@ -26,7 +27,6 @@ const AutoHeightDiv = styled.div`
 
 const StyleIframe = styled.iframe`
   position: absolute;
-  top: 10vh;
   left: 0;
   width: 100%;
   height: 100%;
@@ -54,17 +54,15 @@ const StyleDiv = styled.div`
 `
 
 const OptionDiv = styled.div`
-  position: relative;
   overflow: hidden;
   height: 100%;
   width: 90%;
-  margin-top: 5vh;
+  margin-top: 8vh;
   margin-left: 10%;
-  padding-bottom: calc(95vh - ((98% * 9) / 16));
   
-  @media(max-width: 1000px) {
-    margin-top: 5vh;
-    padding-bottom: 0;
+  @media(max-width: 900px) {
+    margin-top: 10vh;
+    margin-left: 2%;
   }
 
   & p {
@@ -78,19 +76,12 @@ const OptionDiv = styled.div`
   }
   
   & button {
-    position: absolute;
-    bottom: 5%;
-    right: 0;
-    border: none;
+    float: right;
     padding: 0.5%;
+    border: none;
     background-color: #171717;
     color: #ffffff;
     font-weight: 700;
-
-    @media(max-width: 500px) {
-      position: relative;
-      float: right;
-    }
   }
 `;
   

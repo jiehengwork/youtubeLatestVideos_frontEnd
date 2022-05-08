@@ -5,7 +5,7 @@ const StyleAppDiv = styled.div`
   position: relative;
   display: flex;
 
-  @media(max-width: 500px) {
+  @media(max-width: 900px) {
     display: block;
   }
 `;

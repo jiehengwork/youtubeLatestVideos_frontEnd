@@ -2,14 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const styleLink = {
-  'text-decoration': 'none',
   'position': 'absolute',
   'top': '3%',
   'right': '5%',
-  'font-weight': '700',
-  'color': '#f7f7f7',
+  'textDecoration': 'none',
+  'color': '#000000',
   'fontWeight': '700',
-
+  'padding': '0.5%',
+  'backgroundColor': '#f7f7f7',
 }
 
 const InfoButton = () => {

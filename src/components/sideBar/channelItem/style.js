@@ -8,10 +8,14 @@ const StyleA = styled.a`
   line-height: 100%;
   align-items: center;
   text-decoration: none;
-  margin-bottom: 2%;
+  margin-bottom: 5%;
 
   &:visited {
     color: #000000;
+  }
+
+  @media(max-width: 900px) {
+    margin-bottom: 2%;
   }
 `;
 const StyleImg = styled.img`
@@ -25,8 +29,9 @@ const StyleImg = styled.img`
 `;
 const StyleP = styled.p`
   overflow: hidden;
-  white-space: nowrap;
   text-overflow: ellipsis;
+  white-space: nowrap;
+
   color: #f7f7f7;
 `;
 const StyleButton = styled.button`

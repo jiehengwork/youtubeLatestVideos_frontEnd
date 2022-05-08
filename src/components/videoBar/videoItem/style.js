@@ -7,7 +7,7 @@ const StyleVideoItemA = styled.a`
   margin-bottom: 2vh;
   cursor: pointer;
   
-  @media(max-width: 500px) {
+  @media(max-width: 900px) {
     margin-bottom: 0;
     margin-top: 2vh;
     margin-left: 5%;

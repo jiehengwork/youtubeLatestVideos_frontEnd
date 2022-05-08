@@ -27,7 +27,13 @@ const StyleAside = styled.aside`
   }
 
   // 手機直向
-  @media(max-width: 500px) {
+  @media(max-width: 900px) {
+    // 側邊攔收合
+    transform: translateX(-100%);
+    ${StyleSwitchInput}:checked + && {
+      transform: translateX(0);
+    }
+
     position: absolute;
     width: 100%;
   }
@@ -35,9 +41,10 @@ const StyleAside = styled.aside`
 const LogoStyleDiv = styled.div`
   margin-top: 1vh;
   margin-left: 5%;
-  height: 5vh;
+  min-height: 5vh;
 `;
 const StyleLabel = styled.label`
+  padding-top: 0.5%;
   margin-right: 10%;
   margin-left: ${props => props.fixedSwitch ? '.5%' : '0'};
   position: ${props => props.fixedSwitch ?  'absolute' : 'AUTO'};

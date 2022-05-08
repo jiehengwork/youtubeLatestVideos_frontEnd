@@ -27,9 +27,17 @@ const ChannelList = () => {
   }
 
   // 預覽模式
+  const previewData = {
+    channelId: "previewData",
+    channelTitle: "預覽元素",
+    channelSmallImg: "https://yt3.ggpht.com/yti/APfAmoFpk2cDKzXXLaYUCkWLIlqokmootsViL-gcFcA0=s160-c-k-c0x00ffffff-no-rj",
+    channelMediumImg: "https://yt3.ggpht.com/yti/APfAmoFpk2cDKzXXLaYUCkWLIlqokmootsViL-gcFcA0=s160-c-k-c0x00ffffff-no-rj",
+    channelBigImg: "https://yt3.ggpht.com/yti/APfAmoFpk2cDKzXXLaYUCkWLIlqokmootsViL-gcFcA0=s160-c-k-c0x00ffffff-no-rj",
+  }
   let preview = []
   for (let i = 0; i < 30; i++) {
-    preview.push(<PreviewDiv>預覽用佔位元素</PreviewDiv>)
+    // preview.push(<PreviewDiv>預覽用佔位元素</PreviewDiv>)
+    preview.push(<ChannelItem data={ previewData } key={ previewData.channelTitle + i } />)
   }
 
   return(

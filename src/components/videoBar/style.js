@@ -7,18 +7,11 @@ const StyleVideoBarDiv = styled.div`
   margin-left: 2vh;
   overflow-y: scroll;
   
-  @media(max-width: 500px) {
+  @media(max-width: 900px) {
     width: 100%;
     height: auto;
     margin-left: 0;
   }
 `;
-const PreviewDiv = styled.div`
-  color: #f7f7f7;
-  width: 100%;
-  height: 10vh;
-  display: flex;
-  margin-bottom: 2vh;
-`;
 
-export { StyleVideoBarDiv, PreviewDiv }
+export { StyleVideoBarDiv }
