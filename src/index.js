@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {HashRouter, Routes, Route, Link} from "react-router-dom";
+import {HashRouter, Routes, Route} from "react-router-dom";
 import './index.css';
 import MainApp from './MainApp';
 import InfoPage from './components/infoPage/InfoPage';
