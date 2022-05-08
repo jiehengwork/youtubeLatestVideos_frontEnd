@@ -40,7 +40,7 @@ const InfoPage = () => {
         <p>紀錄您已看過以此頻道的影片，不再顯示直到該頻道下次更新影片。</p>
         <br/>
       </div>
-      <Link to={ '/' } style={ styleLink }>回前頁</Link>
+      <a href='http://youtube-new-video-auto-player.herokuapp.com/' style={ styleLink }>回前頁</a>
     </StyleDiv>
   )
 };
