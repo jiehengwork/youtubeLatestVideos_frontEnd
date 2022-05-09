@@ -89,7 +89,7 @@ const EmbedPlayer = () => { // 在主畫面顯示 有新影片的頻道列表 �
       </AutoHeightDiv>
       <OptionDiv>
         <p>{ ( videoId !== '' ) ? videoTitle : "尚無新影片!" }</p>
-        <button onClick={ deleteVideoHandler }><FontAwesomeIcon icon={ faTrashCan } style={ iconStyle }/>把此影片從列表中刪除</button>
+        <button onClick={ deleteVideoHandler }><FontAwesomeIcon icon={ faTrashCan } style={ iconStyle }/>把此影片從清單中刪除</button>
       </OptionDiv>
     </EmbedVideoContainer>
   );
