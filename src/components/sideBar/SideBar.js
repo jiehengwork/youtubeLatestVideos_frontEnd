@@ -14,7 +14,7 @@ const SideBar = () => {
       <StyleAside className="sideBar" id="sideBar">
         <LogoStyleDiv>
           <StyleLabel htmlFor="sideBar-switch"><FontAwesomeIcon icon={faBars}/></StyleLabel>
-          <StyleA href="/#"><span>Latest Videos</span></StyleA>
+          <StyleA href="/#"><span>Search</span></StyleA>
         </LogoStyleDiv>
         <SearchBlock/>
         <ChannelList/>
