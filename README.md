@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# YouTube 頻道 新影片自動撥放器
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+此專案部屬在 Heroku 上，因使用免費方案，第一次載入 Heroku 需開機約 3~5 秒 [連結](http://youtube-new-video-auto-player.herokuapp.com/).
 
-## Available Scripts
+## 專案簡介
 
-In the project directory, you can run:
+### 專案概念
 
-### `npm start`
+平時在使用 YouTube 時，因為訂閱太多頻道與推薦影片太雜，時常需要自己到想看的頻道查看是否有上新影片，或是一不留神就一部又一部的看著推薦影片，花掉了許多寶貴時間。
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+因此我做了這個網站來嘗試解決這個問題，並練習 `React` 與 [其他相關套件](###使用的技能)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+網站的主要功能是幫您檢查訂閱頻道是否有新影片，並集合成列表讓您觀看。其中「搜尋頻道」與「檢查是否有新影片」兩個功能需要透過 YouTube API 取得 ( 寫在後端 Express 中 )
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 基本功能
 
-### `npm run build`
+* 您可以在網站中搜尋並訂閱 YouTube 的頻道，網頁會自動整理頻道的最新一部影片，集合成播放清單。
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* 網頁依照播放清單的順序播放影片，您也可以點擊播放清單的影片改變播放順序。
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* 當您看完影片或是點擊右下角的「把此影片從清單中刪除」，影片便會從清單中被移除。下次該頻道有新影片便會再加入清單。
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+>YouTube API 每天大概只有 100 次的配額，因此我限制每個頻道至少每 8 小時更新一次，
+並且在主頁右上角，點擊「預覽模式」按鈕，則會出現假資料來方便查看網頁的大致切版。
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 使用的技能
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* React
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+123
 
-## Learn More
+* Redux
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+123
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* react-router-dom
 
-### Code Splitting
+123
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+* axios
 
-### Analyzing the Bundle Size
+123
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+* styled-components
 
-### Making a Progressive Web App
+123
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+* express
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+123
