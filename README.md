@@ -28,26 +28,26 @@
 
 ### 使用的技能
 
-* React<br>
+* React<br><br>
 專案主要分為三個大元件「SideBar 側邊欄」、「VideoBar 影片列表」、「VideoPlayer 影片撥放器」，練習以「區分功能」和「可複用」兩原則來劃分元件做開發。
 
-* Redux<br>
+* Redux<br><br>
 由於「訂閱列表」與「影片列表」兩個 Array 會在多個元件與子元件中使用與修改，因此加入 Redux 將兩個 Array 抽出來個別管理狀態。
 
-* react-router-dom<br>
+* react-router-dom<br><br>
 因專案只有一個簡單的純文字分頁，因此採用 React Router 來做分頁，並以 Link 做鏈結。
 
 >Link 功能並不會刷新頁面，回前頁若用 Link 則會導致影片列表錯誤的重複渲染，因此回前頁用的是 a 標籤
 
-* axios<br>
-使用 axios 來處理 http request ，並且參考 [使用Axios你的API都怎麼管理？](http://youtube-new-video-auto-player.herokuapp.com/) 作者: Mike<br>
+* axios<br><br>
+使用 axios 來處理 http request ，並且參考 [使用Axios你的API都怎麼管理？](http://youtube-new-video-auto-player.herokuapp.com/) 作者: Mike<br><br>
 將 API 集中管理在 api.js 中，這樣不僅使用到的 API 一目了然，在做修改時也只需修改一處，是非常好的寫法。
 
 
-* styled-components<br>
+* styled-components<br><br>
 由於 css 以物件方式寫在 React 中太亂了，因此加入 styled-components 來處理 css，也可以在 styled-components 中使用 visited、hover 等互動偵測，更可以使用跟 React component 一樣的傳入值 props 來改變 css。
 
-* Express<br>
+* Express<br><br>
 由於 YouTube API 在前端要求會有跨域 ( CORS ) 問題，因此以 JavaScript 的 Express 來當作伺服器要求 YouTube API ，並開 API 給前端使用。同時也作為專案的後端，加入打包的 React 後部屬到 Heroku 上。
 
 >若您的文章鏈結不希望被分享，請聯繫我 ( jiehengwork@gmail.com )，我會馬上撤下，謝謝您！
