@@ -30,23 +30,23 @@
 
 * React
 主要分成三個元件「SideBar」、「VideoBar」、「VideoPlayer」構成
-├─api
-├─components
-│  ├─infoPage
-│  ├─sideBar
-│  │  ├─channelItem
-│  │  ├─channelList
-│  │  └─searchBlock
-│  ├─userAssistance
-│  │  ├─infoButton
-│  │  └─previewButton
-│  ├─videoBar
-│  │  └─videoItem
-│  └─videoPlayer
-└─redux
-    ├─previewReducer
-    ├─subscriptArrayReducer
-    └─updateArrayReducer
+├─api<br>
+├─components<br>
+│  ├─infoPage<br>
+│  ├─sideBar<br>
+│  │  ├─channelItem<br>
+│  │  ├─channelList<br>
+│  │  └─searchBlock<br>
+│  ├─userAssistance<br>
+│  │  ├─infoButton<br>
+│  │  └─previewButton<br>
+│  ├─videoBar<br>
+│  │  └─videoItem<br>
+│  └─videoPlayer<br>
+└─redux<br>
+    ├─previewReducer<br> 
+    ├─subscriptArrayReducer<br>
+    └─updateArrayReducer<br>
 
 * Redux
 
