@@ -29,12 +29,27 @@
 ### 使用的技能
 
 * React
-
-123
+主要分成三個元件「SideBar」、「VideoBar」、「VideoPlayer」構成
+├─api
+├─components
+│  ├─infoPage
+│  ├─sideBar
+│  │  ├─channelItem
+│  │  ├─channelList
+│  │  └─searchBlock
+│  ├─userAssistance
+│  │  ├─infoButton
+│  │  └─previewButton
+│  ├─videoBar
+│  │  └─videoItem
+│  └─videoPlayer
+└─redux
+    ├─previewReducer
+    ├─subscriptArrayReducer
+    └─updateArrayReducer
 
 * Redux
 
-123
 
 * react-router-dom
 
