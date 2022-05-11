@@ -1,6 +1,8 @@
 # YouTube 頻道 新影片自動撥放器
 
-此專案部屬在 Heroku 上，因使用免費方案，第一次載入 Heroku 需開機約 3~5 秒 [連結](http://youtube-new-video-auto-player.herokuapp.com/).
+![作品圖片](./README_PIC.png)
+
+此專案部屬在 Heroku 免費方案上，第一次載入 Heroku 需開機約 3~5 秒 [連結](http://youtube-new-video-auto-player.herokuapp.com/).
 
 ## 專案簡介
 
