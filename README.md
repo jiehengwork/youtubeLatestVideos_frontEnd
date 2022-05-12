@@ -10,10 +10,10 @@
 
 平時在使用 YouTube 時，因為訂閱太多頻道與推薦影片太雜，時常需要自己到想看的頻道查看是否有上新影片，或是一不留神就一部又一部的看著推薦影片，花掉了許多寶貴時間。
 
-因此我做了這個網站來嘗試解決這個問題，並練習 `React` 與 [其他相關套件](#使用的技能)
+因此我做了這個網站來嘗試解決這個問題，並練習 `React` 與 [其他相關套件](https://github.com/jiehengwork/youtubeLatestVideos_backEnd)
 
 
-網站的主要功能是幫您檢查訂閱頻道是否有新影片，並集合成列表讓您觀看。其中「搜尋頻道」與「檢查是否有新影片」兩個功能需要透過 YouTube API 取得 ( 寫在後端 Express 中 )
+網站的主要功能是幫您檢查訂閱頻道是否有新影片，並集合成列表讓您觀看。其中「搜尋頻道」與「檢查是否有新影片」兩個功能需要透過 YouTube API 取得 ( 寫在後端 Express 中 ) [後端](#使用的技能)
 
 ### 基本功能
 
@@ -25,7 +25,6 @@
 
 >YouTube API 每天大概只有 100 次的配額，因此我限制每個頻道至少每 8 小時更新一次，
 並且在主頁右上角，點擊「預覽模式」按鈕，則會出現假資料來方便查看網頁的大致切版。
-
 
 
 ### 使用的技能
@@ -42,7 +41,7 @@
 >Link 功能並不會刷新頁面，回前頁若用 Link 則會導致影片列表錯誤的重複渲染，因此回前頁用的是 a 標籤
 
 * axios<br><br>
-使用 axios 來處理 http request ，並且參考 [使用Axios你的API都怎麼管理？](http://youtube-new-video-auto-player.herokuapp.com/) 作者: Mike<br><br>
+使用 axios 來處理 http request ，並且參考 [使用Axios你的API都怎麼管理？](https://medium.com/i-am-mike/%E4%BD%BF%E7%94%A8axios%E6%99%82%E4%BD%A0%E7%9A%84api%E9%83%BD%E6%80%8E%E9%BA%BC%E7%AE%A1%E7%90%86-557d88365619) 作者: Mike<br><br>
 將 API 集中管理在 api.js 中，這樣不僅使用到的 API 一目了然，在做修改時也只需修改一處，是非常好的寫法。
 
 
