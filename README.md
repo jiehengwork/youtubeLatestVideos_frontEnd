@@ -10,10 +10,10 @@
 
 平時在使用 YouTube 時，因為訂閱太多頻道與推薦影片太雜，時常需要自己到想看的頻道查看是否有上新影片，或是一不留神就一部又一部的看著推薦影片，花掉了許多寶貴時間。
 
-因此我做了這個網站來嘗試解決這個問題，並練習 `React` 與 [其他相關套件](https://github.com/jiehengwork/youtubeLatestVideos_backEnd)
+因此我做了這個網站來嘗試解決這個問題，並練習 `React` 與 [其他相關套件](#使用的技能)
 
 
-網站的主要功能是幫您檢查訂閱頻道是否有新影片，並集合成列表讓您觀看。其中「搜尋頻道」與「檢查是否有新影片」兩個功能需要透過 YouTube API 取得 ( 寫在後端 Express 中 ) [後端](#使用的技能)
+網站的主要功能是幫您檢查訂閱頻道是否有新影片，並集合成列表讓您觀看。其中「搜尋頻道」與「檢查是否有新影片」兩個功能需要透過 YouTube API 取得 ( 寫在後端 Express 中 ) [後端](https://github.com/jiehengwork/youtubeLatestVideos_backEnd)
 
 ### 基本功能
 
