@@ -73,6 +73,10 @@ const OptionDiv = styled.div`
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+
+    @media(max-width: 900px) {
+      margin-top: 6%;
+    }
   }
   
   & button {

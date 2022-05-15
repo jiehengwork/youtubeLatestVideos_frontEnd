@@ -56,6 +56,7 @@ const StyleLabel = styled.label`
   }
   
   @media(max-width: 500px) {
+    padding-top: ${props => props.fixedSwitch ? '1.5%' : '0.5%'};
     margin-left: ${props => props.fixedSwitch ? '5%' : '0'};
   }
 `;

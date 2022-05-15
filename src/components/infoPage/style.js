@@ -9,6 +9,10 @@ const StyleDiv = styled.div`
 
   div {
     width: 67%;
+    
+    @media(max-width: 900px) {
+      width: 95%;
+    }
   }
 
   h2 {
@@ -29,6 +33,9 @@ const StyleDiv = styled.div`
     font-weight: 600;
     font-size: 1.25rem;
     letter-spacing: 2px;
+    
+    @media(max-width: 900px) {
+      font-size: 1rem;
   }
   `;
   

@@ -43,6 +43,7 @@ const StyleButton = styled.button`
 
   @media( max-width: 900px ) {
     right: 20%;
+    top: 1.5%;
   }
   @media( max-width: 600px ) {
     right: 25%;
